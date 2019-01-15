@@ -386,8 +386,8 @@ static int printstats(uint64_t totalbytes, uint64_t byteswritten, struct TIME_ST
 
     tsecs = TSECS(elapsedtime);
 
-    return fprintf(stderr, THROTTLE ": %4llu%c, %4llu%c in %.3fs %.3f%c/s -s %lu -w %ld -%c %.3f\n",
-	    total, total_unit, written, written_unit, tsecs, BSECS(byteswritten, tsecs) / unit, unit_opt,
+    return fprintf(stderr, THROTTLE ": %4ju%c, %4ju%c in %.3fs %.3f%c/s -s %lu -w %ld -%c %.3f\n",
+	    (uintmax_t)total, total_unit, (uintmax_t)written, written_unit, tsecs, BSECS(byteswritten, tsecs) / unit, unit_opt,
 	    (unsigned long)blocksize, (long)window, unit_opt, Bps / unit);
 }
 
